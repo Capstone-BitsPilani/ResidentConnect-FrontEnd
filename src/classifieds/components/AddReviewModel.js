@@ -147,16 +147,16 @@ const AddReviewModel = (props) => {
       <DialogContent>
         <form onSubmit={props.handleSubmit(onSubmit)}>
           <Grid container direction="column" justifyContent="space-around" alignItems="center">
-            <div>
-              <Field name="rating" component={renderRatingField} />
+            <div >
+              <Field name="rating" size="large"  sx={{width:'100px',height:'100px'}}  component={renderRatingField} />
             </div>
 
             <div>
-              <Field style={{width:'800px'}} name="comment" id="comment" component={renderTextField} label="Comment" multiline rows={10} palceholder="enter comment" variant="outlined" />
+              <Field style={{marginBottom:'20px',width:'800px'}} name="comment" id="comment" component={renderTextField} label="Comment" multiline rows={10} palceholder="enter comment" variant="outlined" />
             </div>
-            <Grid container direction="row" justifyContent="space-around" alignItems="center">
-              <PrimaryButton type="submit">Submit</PrimaryButton>
-              <PrimaryButton onClick={props.handleClose}>
+            <Grid container direction="row"  justifyContent="space-around" alignItems="center">
+              <PrimaryButton  style={{marginTop:'20px',marginLeft:'20px'}} type="submit">Submit</PrimaryButton>
+              <PrimaryButton style={{marginTop:'20px' ,marginLeft:'20px'}} onClick={props.handleClose}>
                 {" "}
                 Cancel{" "}
               </PrimaryButton>

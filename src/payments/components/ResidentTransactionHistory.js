@@ -1,5 +1,4 @@
 import React,{useEffect} from 'react'
-import { PageHeader } from '../../shared/components/PageHeader'
 import { connect } from 'react-redux';
 import {fetchPaymentHistoryOfApartment} from '../actions';
 import { useApartment } from '../../context/apartment.context';
@@ -17,8 +16,8 @@ export const ResidentTransactionHistory = ({...props}) => {
      return (
         
         <div>
-         
-            <ResidentTransactionHistoryTable payments={props.payments}/>
+           {props.payments.length===0 && <div> No Transactions </div>}
+           {props.payments.length>0 && <ResidentTransactionHistoryTable payments={props.payments}/> }
             
         </div>
     )

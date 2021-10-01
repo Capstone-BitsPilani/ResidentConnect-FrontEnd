@@ -145,7 +145,13 @@ export const EditReviewModel = (props) => {
     console.log(data);
     setIsLoading(true);
     await editReviewComment(data).then((response) => {
-      editRatingDetails(rating,data.rating);
+      //editRatingDetails(rating,data.rating);
+      props.fetchClassifiedById(classifiedid);
+          props.fetchCommentsAndUsers(classifiedid)
+          setIsLoading(false);
+          props.handleClose();
+          setAlertType("success");
+          openAlert();  
     });
   };
 

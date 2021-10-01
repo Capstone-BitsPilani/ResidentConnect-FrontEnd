@@ -16,9 +16,13 @@ import {convertDate,convertTime} from '../../misc/helpers';
 import Popper from '@mui/material/Popper';
 import PopupState, { bindToggle, bindPopper } from 'material-ui-popup-state';
 import Fade from '@mui/material/Fade';
+import {formatPhone} from '../../misc/helpers';
 
 export const  MyRideRequestCard=({...props})=> {
-   
+     // eslint-disable-next-line no-extend-native
+  String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
     const renderData=()=>{
       if( typeof props.ridereq === "undefined")
     
@@ -89,7 +93,7 @@ export const  MyRideRequestCard=({...props})=> {
             {({ TransitionProps }) => (
               <Fade {...TransitionProps} timeout={350}>
                 <Paper>
-                  <Typography sx={{ p: 2 }}>{props.owner  .phone[0].number}</Typography>
+                  <Typography sx={{ p: 2 }}>{formatPhone(props.owner  .phone[0].number)}</Typography>
                 </Paper>
               </Fade>
             )}
@@ -99,11 +103,11 @@ export const  MyRideRequestCard=({...props})=> {
     </PopupState>
       <div>
      
-          <PrimaryButton disabled>{props.ridereq.status} </PrimaryButton>
+          <PrimaryButton disabled>{props.ridereq.status.capitalize()} </PrimaryButton>
           {props.ridereq.status==='pending' &&
           <PrimaryButton style={{marginLeft:'10px'}}  >Cancel Request </PrimaryButton>}
             {props.ridereq.status==='rejected' &&  props.ridereq !=null &&
-          <Typography variant="body2" color="text.secondary"> {props.ridereq.rejectionreason} </Typography>}
+          <Typography variant="body2" color="text.secondary"> {props.ridereq.rejectionreason.capitalize()} </Typography>}
     {props.ridereq.status==='rejected' &&  props.ridereq ==null &&
           <Typography variant="body2" color="text.secondary"> No Reason for rejection </Typography>}
        

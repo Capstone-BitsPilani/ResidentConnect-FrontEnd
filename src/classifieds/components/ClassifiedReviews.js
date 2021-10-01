@@ -21,7 +21,7 @@ import { connect } from 'react-redux';
 
 return (
 <div>
-  <ClassifiedRatings classified={props.classified}   /> 
+  <ClassifiedRatings comments={props.comments} classified={props.classified}   /> 
   <AddReview classified={props.classified}     />
   <ReviewList  classified={props.classified} comments={props.comments}  />
 </div>

@@ -178,7 +178,7 @@ if (b[orderBy]
               <TableCell align="left">{row.period}</TableCell>
               <TableCell align="left">{row.category.capitalize()}</TableCell>
               <TableCell align="left">{row.aptnum}</TableCell>              
-              <TableCell align="left">{row.amt}</TableCell>
+              <TableCell align="left"> &#8377; {row.amt.toLocaleString('en-IN')}</TableCell>
               <TableCell align="left">{convertDate(row.dueat)}</TableCell>
               <TableCell align="left">
                 <Chip label={row.status.capitalize()} color={row.status==='due'?'primary':'secondary'} />

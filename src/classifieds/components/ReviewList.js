@@ -7,10 +7,11 @@ import { calculateAverageStars } from "../../misc/helpers";
 import classifiedAPI from "../../misc/axios-calls/classifiedAPI";
 
 export const ReviewList =({...props}) => {
+  const classifiedid=props.classified._id;
+
   const editRatingDetails= async (rating) =>{
     const reviewData = {};
     const ratings=props.classified.ratings;
-    const classifiedid=props.classified._id;
     let _5star = parseInt(ratings._5star);
     let _4star = parseInt(ratings._4star);
     let _3star = parseInt(ratings._3star);
@@ -81,8 +82,9 @@ export const ReviewList =({...props}) => {
       .delete(apiBaseUrl)
       .then(function (response) {
         if (response.status === 200) {
-          editRatingDetails(rating)
-          
+          //editRatingDetails(rating)
+          props.fetchClassifiedById(classifiedid);
+          props.fetchCommentsAndUsers(classifiedid)
         }
       })
       .catch(function (error) {

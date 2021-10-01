@@ -15,7 +15,7 @@ import IconButton from '@mui/material/IconButton';
 import Popper from '@mui/material/Popper';
 import PopupState, { bindToggle, bindPopper } from 'material-ui-popup-state';
 import Fade from '@mui/material/Fade';
-
+import {formatPhone} from '../../misc/helpers';
 export const  RideRequestCard=({...props})=> {
   const { isOpen, open, close } = useModelState();
   
@@ -97,7 +97,7 @@ return (
             {({ TransitionProps }) => (
               <Fade {...TransitionProps} timeout={350}>
                 <Paper>
-                  <Typography sx={{ p: 2 }}>{props.requester.phone[0].number}</Typography>
+                  <Typography sx={{ p: 2 }}>{formatPhone(props.requester.phone[0].number)}</Typography>
                 </Paper>
               </Fade>
             )}
